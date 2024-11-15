@@ -1,0 +1,168 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Upcoming Sports Event</title>
+    <style>
+
+
+body {
+            
+            font-family: Arial, sans-serif;
+            color: #2196F3;
+            display: block;
+            justify-content: center;
+            align-items: center;
+            min-height: 100vh;
+            margin: 20;
+            background-color: white;
+           background-image: url('sport_event.JPG');
+            background-size: cover;
+            background-position-x: 0px;
+            background-position-y: 55px;
+            background-repeat: no-repeat;
+        
+        }
+
+        .container {
+            width: 50%;
+            max-width: 900px;
+            margin: auto;
+        }
+
+        h2 {
+            text-align: center;
+        }
+        .card {
+            
+            background: white;
+            margin: 15px 0;
+            padding: 20px;
+            border-radius: 8px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+        }
+
+            .card h4 {
+            margin: 0;
+            color: black;
+            gap: 70px;
+        }
+        .card p {
+            margin: 5px 0;
+            color: black;
+            
+        }
+        .card a {
+            display: inline-block;
+            margin-top: 10px;
+            color: #2196F3;
+            text-decoration: none;
+            font-weight: bold;
+        }
+        .card a:hover {
+            color: #034479;
+        }
+
+   .center {
+ background-color: white;
+       
+  }
+        
+    </style>
+</head>
+<body>
+    
+   
+    
+    <div class="center">
+    <h1> <img src="event_logo.JPG" alt="Event_logo"></h1>
+     </div>
+  <br><br><br>
+
+  
+  <div class="container">
+    <h2> Upcoming Sports Events </h2>
+    <div id="recordsContainer">
+        <!-- Cards will be added dynamically here -->
+  </div>
+</div>
+
+<script>
+    // Array of data records
+    const records = [
+        {
+            startDate: "2024-11-01",
+            endDate: "2024-11-05",
+            description: "Conference in Exhbition Hall",
+            location: "Saskatoon, SK",
+            map: "https://www.google.com/maps/place/Exhibition,+Saskatoon,+SK/@52.1000219,-106.6839775,15z/data=!3m1!4b1!4m6!3m5!1s0x5304f0c4e5891fed:0xddbdb3007c5db1ee!8m2!3d52.1003892!4d-106.6704512!16s%2Fm%2F02pv9xw?entry=ttu&g_ep=EgoyMDI0MTAyOS4wIKXMDSoASAFQAw%3D%3D"
+        },
+        {
+            startDate: "2024-12-10",
+            endDate: "2024-12-12",
+            description: "Conference in polytech Hall ",
+            location: "Saskatoon, SK",
+            map: "https://www.google.com/maps/place/Exhibition,+Saskatoon,+SK/@52.1000219,-106.6839775,15z/data=!3m1!4b1!4m6!3m5!1s0x5304f0c4e5891fed:0xddbdb3007c5db1ee!8m2!3d52.1003892!4d-106.6704512!16s%2Fm%2F02pv9xw?entry=ttu&g_ep=EgoyMDI0MTAyOS4wIKXMDSoASAFQAw%3D%3D"
+        },
+        {
+            startDate: "2025-01-15",
+            endDate: "2025-01-17",
+            description: "Workshop on AI",
+            location: "Saskatoon, SK",
+            map: "https://maps.google.com/?q=Los+Angeles+USA"
+        },
+        {
+            startDate: "2024-11-01",
+            endDate: "2024-11-05",
+            description: "Conference in Saskatoon",
+            location: "Saskatoon, SK",
+            map: "https://maps.google.com/?q=New+York+USA"
+        }
+        
+
+
+    ];
+
+    // Function to display records as cards
+    function displayRecords() {
+        const recordsContainer = document.getElementById("recordsContainer");
+
+        records.forEach(record => {
+            // Create a card div
+            const card = document.createElement("div");
+            card.classList.add("card");
+
+            // Add start date and end date
+            const dates = document.createElement("h4");
+            dates.textContent = `From: ${record.startDate} To: ${record.endDate}`;
+            card.appendChild(dates);
+
+            // Add description
+            const description = document.createElement("p");
+            description.textContent = `Description: ${record.description}`;
+            card.appendChild(description);
+
+            // Add location
+            const location = document.createElement("p");
+            location.textContent = `Location: ${record.location}`;
+            card.appendChild(location);
+
+            // Add map link
+            const mapLink = document.createElement("a");
+            mapLink.href = record.map;
+            mapLink.textContent = "View Map";
+            mapLink.target = "_blank"; // Open in a new tab
+            card.appendChild(mapLink);
+
+            // Append card to the container
+            recordsContainer.appendChild(card);
+        });
+    }
+
+    // Call the function to display the records on page load
+    window.onload = displayRecords;
+</script>
+
+</body>
+</html>
